@@ -7,19 +7,20 @@
 </head>
 <body>
 <main>
-
-    <a href="index.html" class="link">Назад</a>
+    <link rel="stylesheet" href="../static/style.css">
+    <a href="/" class="link">Назад</a>
 
     <h1>Пост добавлен! </h1>
 
     <div class="post">
-        <img src="https://images.unsplash.com/photo-1637141479049-42656cb6b741?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80" width="100%" alt="">
-        <p>Текст добавленного поста тут</p>
+        {% set path = post.pic %}
+        <img src="{{ url_for('loader.static_dir', path=path) }}" width="300px" alt="">
+        <p>{{ post.content }}</p>
     </div>
 
     <hr>
 
-    <a href="post_form.html" class="button">Добавить еще пост</a>
+    <a href="{{ url_for('loader.page_post_form') }}" class="button">Добавить еще пост</a>
 
 </main>
 </body>
